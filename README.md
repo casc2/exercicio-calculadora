@@ -1,4 +1,4 @@
-# Tarefa #1 - CALCULADORA 
+﻿# Tarefa #1 - CALCULADORA 
 
 Esta tarefa envolve os conceitos básicos de projetos Android, UI widgets, e mudanças de configuração. 
 Faça um clone ou fork deste projeto, siga os passos na ordem sugerida e marque mais abaixo, na sua resposta, quais os passos completados. 
@@ -22,7 +22,7 @@ Para entregar o exercício, responda o [formulário de entrega](https://docs.goo
 
 | Passo | Completou? |
 | ------ | ------ |
-| 1 | **não** |
-| 2 | **não** |
+| 1 | **sim** |
+| 2 | **sim** |
 | 3 | **não** |
 | 4 | **não** |
