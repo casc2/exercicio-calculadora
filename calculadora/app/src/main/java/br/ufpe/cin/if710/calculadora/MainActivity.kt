@@ -2,13 +2,19 @@ package br.ufpe.cin.if710.calculadora
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
+    private var persistedExpression = ""
+    private var persistedResult = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        text_info.text = savedInstanceState?.getString(persistedResult)
+        text_calc.setText(persistedExpression)
 
         btn_0.setOnClickListener {
             text_calc.append(btn_0.text.toString())
@@ -83,7 +89,15 @@ class MainActivity : Activity() {
         }
 
         btn_Equal.setOnClickListener {
-            text_info.text = eval(text_calc.text.toString()).toString()
+            var result: Double
+            try {
+                result = eval(text_calc.text.toString())
+            } catch (e: RuntimeException) {
+                val msg = "Expressão mal formada"
+                Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            text_info.text = result.toString()
             text_calc.text.clear()
         }
 
@@ -186,5 +200,11 @@ class MainActivity : Activity() {
                 return x
             }
         }.parse()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putString(persistedExpression, text_calc.text.toString())
+        outState?.putString(persistedResult, text_info.text.toString())
+        super.onSaveInstanceState(outState)
     }
 }
