@@ -24,7 +24,7 @@
         android:layout_below="@id/text_info"
         android:enabled="false"
         android:gravity="bottom"
-        android:inputType="numberDecimal"
+        android:inputType="text"
         android:lines="2"
         android:maxLines="2"
         android:textSize="40sp" />
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="7"
+            android:text="@string/btn_7"
             android:textSize="16sp" />
 
         <Button
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="8"
+            android:text="@string/btn_8"
             android:textSize="16sp" />
 
         <Button
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="9"
+            android:text="@string/btn_9"
             android:textSize="16sp" />
 
         <Button
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="/"
+            android:text="@string/btn_divide"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="4"
+            android:text="@string/btn_4"
             android:textSize="16sp" />
 
         <Button
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="5"
+            android:text="@string/btn_5"
             android:textSize="16sp" />
 
         <Button
@@ -100,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="6"
+            android:text="@string/btn_6"
             android:textSize="16sp" />
 
         <Button
@@ -109,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="*"
+            android:text="@string/btn_multiply"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -124,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="1"
+            android:text="@string/btn_1"
             android:textSize="16sp" />
 
         <Button
@@ -133,7 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="2"
+            android:text="@string/btn_2"
             android:textSize="16sp" />
 
         <Button
@@ -142,7 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="3"
+            android:text="@string/btn_3"
             android:textSize="16sp" />
 
         <Button
@@ -151,7 +151,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="-"
+            android:text="@string/btn_minus"
             android:textSize="16sp" />
 
     </LinearLayout>
@@ -167,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="."
+            android:text="@string/btn_dot"
             android:textSize="16sp" />
 
         <Button
@@ -176,7 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="0"
+            android:text="@string/btn_0"
             android:textSize="16sp" />
 
         <Button
@@ -185,7 +185,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="="
+            android:text="@string/btn_equals"
             android:textSize="16sp" />
 
         <Button
@@ -194,7 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="+"
+            android:text="@string/btn_plus"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -209,7 +209,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="("
+            android:text="@string/btn_op"
             android:textSize="16sp" />
 
         <Button
@@ -218,7 +218,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=")"
+            android:text="@string/btn_cp"
             android:textSize="16sp" />
 
         <Button
@@ -227,7 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="^"
+            android:text="@string/btn_pwr"
             android:textSize="16sp" />
 
         <Button
@@ -236,7 +236,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="C"
+            android:text="@string/btn_clr"
             android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

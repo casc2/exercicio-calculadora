@@ -2,12 +2,111 @@ package br.ufpe.cin.if710.calculadora
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
+    private var persistedExpression = ""
+    private var persistedResult = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        text_info.text = savedInstanceState?.getString(persistedResult)
+        text_calc.setText(persistedExpression)
+
+        btn_0.setOnClickListener {
+            text_calc.append(btn_0.text.toString())
+        }
+
+        btn_1.setOnClickListener {
+            text_calc.append(btn_1.text.toString())
+        }
+
+        btn_2.setOnClickListener {
+            text_calc.append(btn_2.text.toString())
+        }
+
+        btn_3.setOnClickListener {
+            text_calc.append(btn_3.text.toString())
+        }
+
+        btn_4.setOnClickListener {
+            text_calc.append(btn_4.text.toString())
+        }
+
+        btn_5.setOnClickListener {
+            text_calc.append(btn_5.text.toString())
+        }
+
+        btn_6.setOnClickListener {
+            text_calc.append(btn_6.text.toString())
+        }
+
+        btn_7.setOnClickListener {
+            text_calc.append(btn_7.text.toString())
+        }
+
+        btn_8.setOnClickListener {
+            text_calc.append(btn_8.text.toString())
+        }
+
+        btn_9.setOnClickListener {
+            text_calc.append(btn_9.text.toString())
+        }
+
+        btn_Dot.setOnClickListener {
+            text_calc.append(btn_Dot.text.toString())
+        }
+
+        btn_LParen.setOnClickListener {
+            text_calc.append(btn_LParen.text.toString())
+        }
+
+        btn_RParen.setOnClickListener {
+            text_calc.append(btn_RParen.text.toString())
+        }
+
+        btn_Add.setOnClickListener {
+            text_calc.append(btn_Add.text.toString())
+        }
+
+        btn_Subtract.setOnClickListener {
+            text_calc.append(btn_Subtract.text.toString())
+        }
+
+        btn_Divide.setOnClickListener {
+            text_calc.append(btn_Divide.text.toString())
+        }
+
+        btn_Multiply.setOnClickListener {
+            text_calc.append(btn_Multiply.text.toString())
+        }
+
+        btn_Power.setOnClickListener {
+            text_calc.append(btn_Power.text.toString())
+        }
+
+        btn_Equal.setOnClickListener {
+            var result: Double
+            try {
+                result = eval(text_calc.text.toString())
+            } catch (e: RuntimeException) {
+                val msg = "Expressão mal formada"
+                Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            text_info.text = result.toString()
+            text_calc.text.clear()
+        }
+
+        btn_Clear.setOnClickListener {
+            val textCalcString = text_calc.text.toString()
+            if (textCalcString.isNotEmpty()) {
+                text_calc.setText(textCalcString.substring(0, textCalcString.length - 1))
+            }
+        }
     }
 
     //Como usar a função:
@@ -101,5 +200,11 @@ class MainActivity : Activity() {
                 return x
             }
         }.parse()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putString(persistedExpression, text_calc.text.toString())
+        outState?.putString(persistedResult, text_info.text.toString())
+        super.onSaveInstanceState(outState)
     }
 }
