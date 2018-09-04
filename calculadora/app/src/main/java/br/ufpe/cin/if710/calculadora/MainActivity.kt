@@ -6,6 +6,8 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
+
+//    Variáveis para armazenamento da expressão e resultado na mudança de configuração.
     private var persistedExpression = ""
     private var persistedResult = ""
 
@@ -13,9 +15,11 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        Propaga as informações salvas na mudança de configuração para os respectivos campos.
         text_info.text = savedInstanceState?.getString(persistedResult)
-        text_calc.setText(persistedExpression)
+        text_calc.setText(savedInstanceState?.getString(persistedExpression))
 
+//        Associando listener para cada botão da calculadora.
         btn_0.setOnClickListener {
             text_calc.append(btn_0.text.toString())
         }
@@ -88,12 +92,21 @@ class MainActivity : Activity() {
             text_calc.append(btn_Power.text.toString())
         }
 
+        /*
+        *   Avalia a expressão ao clicar no botão "=".
+        *
+        *   É feita uma tentativa de computação da expressão aritmética.
+        *   Em caso de sucesso, o resultado é exibido em "text_info" e o campo "text_calc" é limpo.
+        *   Em caso de falha, o campo "text_calc" não é limpo e um toast é exibido  com a mensagem:
+        *   "Expressão mal formada".
+        */
         btn_Equal.setOnClickListener {
-            var result: Double
+            val result: Double
             try {
                 result = eval(text_calc.text.toString())
             } catch (e: RuntimeException) {
                 val msg = "Expressão mal formada"
+//                Criação do toast.
                 Toast.makeText(applicationContext, msg, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -101,6 +114,8 @@ class MainActivity : Activity() {
             text_calc.text.clear()
         }
 
+//        O botão "C" valida primeiro a existência da expressão.
+//        Em caso positivo, consome um caractere de "text_calc", do contrário, não faz nada.
         btn_Clear.setOnClickListener {
             val textCalcString = text_calc.text.toString()
             if (textCalcString.isNotEmpty()) {
@@ -202,6 +217,7 @@ class MainActivity : Activity() {
         }.parse()
     }
 
+//        Persistindo a equação e resultado quando ocorrer mudança de configuração.
     override fun onSaveInstanceState(outState: Bundle?) {
         outState?.putString(persistedExpression, text_calc.text.toString())
         outState?.putString(persistedResult, text_info.text.toString())
